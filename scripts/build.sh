@@ -1,3 +1,5 @@
 #!/bin/bash
-cd $(dirname $0)/..
-exec npx next build
+set -e
+cd "$(dirname "$0")/.."
+pnpm install
+pnpm exec next build
