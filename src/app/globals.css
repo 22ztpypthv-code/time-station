@@ -1,0 +1,336 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  /* 品牌色系 */
+  --color-rose-primary: #E91E63;
+  --color-orange-warm: #FF9800;
+  --color-green-safe: #4CAF50;
+  --color-bg-page: #F5F5F5;
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-border-light: #DDDDDD;
+  /* 字体 */
+  --font-sans:
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans CN', ui-sans-serif,
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  --font-serif:
+    'Noto Serif SC', 'Songti SC', 'SimSun', ui-serif, Georgia, Cambria,
+    'Times New Roman', Times, serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: #F5F5F5;
+  --foreground: #333333;
+  --card: #FFFFFF;
+  --card-foreground: #333333;
+  --popover: #FFFFFF;
+  --popover-foreground: #333333;
+  --primary: #E91E63;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FF9800;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
+  --accent: #FFF3E0;
+  --accent-foreground: #E65100;
+  --destructive: #F44336;
+  --border: #DDDDDD;
+  --input: #DDDDDD;
+  --ring: #E91E63;
+  --chart-1: #E91E63;
+  --chart-2: #FF9800;
+  --chart-3: #4CAF50;
+  --chart-4: #2196F3;
+  --chart-5: #9C27B0;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #333333;
+  --sidebar-primary: #E91E63;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFF3E0;
+  --sidebar-accent-foreground: #E65100;
+  --sidebar-border: #DDDDDD;
+  --sidebar-ring: #E91E63;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #2d2d2d;
+  --card-foreground: #f5f5f5;
+  --popover: #2d2d2d;
+  --popover-foreground: #f5f5f5;
+  --primary: #F48FB1;
+  --primary-foreground: #1a1a1a;
+  --secondary: #FFB74D;
+  --secondary-foreground: #1a1a1a;
+  --muted: #3d3d3d;
+  --muted-foreground: #a0a0a0;
+  --accent: #4a3a2a;
+  --accent-foreground: #FFB74D;
+  --destructive: #EF5350;
+  --border: #404040;
+  --input: #404040;
+  --ring: #F48FB1;
+  --chart-1: #F48FB1;
+  --chart-2: #FFB74D;
+  --chart-3: #81C784;
+  --chart-4: #64B5F6;
+  --chart-5: #BA68C8;
+  --sidebar: #2d2d2d;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #F48FB1;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #4a3a2a;
+  --sidebar-accent-foreground: #FFB74D;
+  --sidebar-border: #404040;
+  --sidebar-ring: #F48FB1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  @apply font-sans antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* 标题样式 */
+h1, .text-h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+h2, .text-h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+h3, .text-h3 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* 老人友好字体 */
+.text-elder {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* 品牌色类 */
+.bg-rose-primary {
+  background-color: #E91E63;
+}
+
+.text-rose-primary {
+  color: #E91E63;
+}
+
+.bg-orange-warm {
+  background-color: #FF9800;
+}
+
+.text-orange-warm {
+  color: #FF9800;
+}
+
+.bg-green-safe {
+  background-color: #4CAF50;
+}
+
+.text-green-safe {
+  color: #4CAF50;
+}
+
+/* 渐变背景 */
+.bg-gradient-rose {
+  background: linear-gradient(135deg, #E91E63 0%, #F48FB1 100%);
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+}
+
+.bg-gradient-safe {
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+}
+
+/* 卡片阴影 */
+.shadow-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 自定义动画 */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* 焦点样式优化 */
+*:focus-visible {
+  outline: 2px solid #E91E63;
+  outline-offset: 2px;
+}
+
+/* 禁用状态 */
+button:disabled,
+input:disabled,
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 选择文本颜色 */
+::selection {
+  background-color: #FCE4EC;
+  color: #333333;
+}
